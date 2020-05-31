@@ -5,7 +5,6 @@ const storage = multer.memoryStorage({
     cb(null, './uploads/')
   },
   filename: function(req, file, cb){
-    console.log("Multer Image File: "+file)
     cb(null, file.originalname)
   }
 });

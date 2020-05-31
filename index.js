@@ -2,6 +2,10 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const hbs = require('hbs');
+const dotenv = require('dotenv');
+
+dotenv.config()
+// console.log(process.env.CLOUD_NAME)
 const sequelize = require('./db/psql.js');
 
 const User = require('./router/apiroutes/userapiroutes');

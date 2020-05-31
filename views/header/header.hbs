@@ -22,14 +22,15 @@
         <li class="nav-item">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle notification" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Notification
-              <span class="badge">3</span>
+              Notification 
+              <span class="badge">{{count}}</span>
             </button>
-            {{#each notify}}
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              {{#each notify}}
               <a class="dropdown-item">{{this.name}} liked your post</a>
+              {{/each}}
             </div>
-            {{/each}}
+            
           </div>
             
         </li>

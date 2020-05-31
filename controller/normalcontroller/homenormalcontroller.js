@@ -12,7 +12,7 @@ module.exports = {
     try {
       const user = req.user;
       console.log(user)
-      const like = await Like.findAll({where: { userid: {[op.ne]: user.id}}})
+      const like = await Like.findAll({where: { postedBy: {[op.ne]: user.id}}})
       let notificationdata = [];
       for( var i = 0; i < like.length; i++){
         let posteduser = await Block.findOne({ where : { blockedUserid: like[i].dataValues.postedBy}})
@@ -35,7 +35,7 @@ module.exports = {
       }
       var userDetails = [];
       const imageall = await Image.findAll({});
-      // console.log(imageall)
+      
       for( var i = 0; i< imageall.length; i++){
         let url = imageall[i].dataValues.imageUrl;
         let publicid = imageall[i].dataValues.publicid;
@@ -54,9 +54,13 @@ module.exports = {
       }
       // console.log(userDetails)
       // console.log(imageall)
+      console.log(notificationdata)
+      console.log(userDetails);
+
       res.render('home', {
         userData: userDetails,
-        notification: notificationdata
+        notification: notificationdata,
+        notifycount: notificationdata.length
       })  
       // res.render('home')
     } catch (error) {
