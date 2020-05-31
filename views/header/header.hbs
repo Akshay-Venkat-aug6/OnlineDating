@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">EmployeeWorld</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/friend">Friends</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/block">Blocked User</a>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle notification" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Notification
+              <span class="badge">3</span>
+            </button>
+            {{#each notify}}
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item">{{this.name}} liked your post</a>
+            </div>
+            {{/each}}
+          </div>
+            
+        </li>
+        <form action="/logout" method="POST">
+          <li class="nav-item active">
+            <button class="nav-link" type="submit">Logout</button>
+          </li>
+        </form>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  <script>
+    
+    var origin = "http://localhost:5000";
+    var socket = io(origin);
+    function sendMessage(){
+      socket.emit("messageSent", {
+        "type": "like"
+        "name": document.getElementById("name").value,
+      });
+    }
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <form action="#">
+    {{!-- <button type="submit" >Like</button> --}}
+    <input type="text" id="name">
+    <input type="button" onclick="sendMessage()" value="Like"/>
+  </form>
+</body>
+
+</html>
